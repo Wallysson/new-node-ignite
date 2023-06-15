@@ -4,16 +4,16 @@ Este é um resumo de conceitos e códigos relacionados ao Node.js. Abaixo estão
 
 ## Tópicos
 
-O que é Node.js?
-O que é NPM?
-O que é package.json?
-O que são módulos em Node.js?
-O que são callbacks em Node.js?
-O que é o Event Loop do Node.js?
-O que é o processo de stream em Node.js?
-O que são Streams, stdin, stdout, pipe e buffers em Node.js?
-O que é o middleware em Node.js?
-Exemplo de Código feito na aula
+O que é Node.js? <br/>
+O que é NPM? <br/>
+O que é package.json? <br/>
+O que são módulos em Node.js? <br/>
+O que são callbacks em Node.js? <br/>
+O que é o Event Loop do Node.js? <br/>
+O que é o processo de stream em Node.js? <br/>
+O que são Streams, stdin, stdout, pipe e buffers em Node.js? <br/>
+O que é o middleware em Node.js? <br/>
+Exemplo de Código feito na aula <br/>
 
 ### O que é Node.js?
 
