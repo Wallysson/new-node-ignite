@@ -33,3 +33,18 @@ Criação das rotas:
 * PUT - /tasks/🆔 atualiza uma task pelo id. O body da requisição deve conter somente o title e/ou description para serem atualizados. Se for enviado somente o title, significa que o description não pode ser atualizado e vice-versa. É feita uma validação se o id pertence a uma task salva no banco de dados antes da atualização.
 * DELETE - /tasks/🆔 remove uma task pelo id. É feita uma validação se o id pertence a uma task salva no banco de dados antes da remoção.
 * PATCH - /tasks/:id/complete: marca a task como completa ou não. Antes da alteração, é feita uma validação se o id pertence a uma task salva no banco de dados.
+
+## [Módulo 02 - Api Rest](https://github.com/Wallysson/new-node-ignite/tree/main/02-api-rest-nodejs)
+
+* O que é o TypeScript?
+* O que é o Fastify?
+* O que é o Knex?
+* Como conectar com o banco de dados usando o Knex?
+* O que é uma API REST?
+* Quais são os principais métodos HTTP?
+* Quais são os códigos de status mais utilizados e para que servem?
+* O que são rotas?
+* Para que servem os cookies?
+* O que são middlewares?
+* Quais são os tipos de testes?
+* Exemplo de código de rota de transações com Fastify, Knex e Zod.
