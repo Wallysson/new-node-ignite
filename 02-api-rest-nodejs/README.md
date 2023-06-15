@@ -4,18 +4,18 @@ Este é um resumo sobre o que foi estudado no Módulo 02. Abaixo estão as pergu
 
 ## Tópicos
 
-O que é o TypeScript?
-O que é o Fastify?
-O que é o Knex?
-Como conectar com o banco de dados usando o Knex?
-O que é uma API REST?
-Quais são os principais métodos HTTP?
-Quais são os códigos de status mais utilizados e para que servem?
-O que são rotas?
-Para que servem os cookies?
-O que são middlewares?
-Quais são os tipos de testes?
-Exemplo de código de rota de transações com Fastify, Knex e Zod.
+O que é o TypeScript? <br/>
+O que é o Fastify? <br/>
+O que é o Knex? <br/>
+Como conectar com o banco de dados usando o Knex? <br/>
+O que é uma API REST? <br/>
+Quais são os principais métodos HTTP? <br/>
+Quais são os códigos de status mais utilizados e para que servem? <br/>
+O que são rotas? <br/>
+Para que servem os cookies? <br/>
+O que são middlewares? <br/>
+Quais são os tipos de testes? <br/>
+Exemplo de código de rota de transações com Fastify, Knex e Zod. <br/>
 
 ### O que é o TypeScript?
 
