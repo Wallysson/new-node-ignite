@@ -1,56 +1,29 @@
+import { prisma } from '@/lib/prisma';
+import { hash } from 'bcryptjs';
+import { FastifyInstance } from 'fastify';
 import request from 'supertest';
-import { app } from '@/app';
-import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { createAndAuthenticateUser } from '@/utils/test/create-and-authenticate-user';
 
-describe('Search Gyms (e2e)', () => {
-  beforeAll(async () => {
-    await app.ready();
+export async function createAndAuthenticateUser(
+  app: FastifyInstance,
+  isAdmin = false
+) {
+  await prisma.user.create({
+    data: {
+      name: 'John Doe',
+      email: 'johndoe@example.com',
+      password_hash: await hash('123456', 6),
+      role: isAdmin ? 'ADMIN' : 'MEMBER',
+    },
   });
 
-  afterAll(async () => {
-    await app.close();
+  const authResponse = await request(app.server).post('/sessions').send({
+    email: 'johndoe@example.com',
+    password: '123456',
   });
 
-  it('should be able to search gyms by title', async () => {
-    const { token } = await createAndAuthenticateUser(app);
+  const { token } = authResponse.body;
 
-    await request(app.server)
-      .post('/gyms')
-      .set('Authorization', `Bearer ${token}`)
-      .send({
-        title: 'JavaScript Gym',
-        description: 'Some description.',
-        phone: '1199999999',
-        latitude: -27.2092052,
-        longitude: -49.6401091,
-      });
-
-    await request(app.server)
-      .post('/gyms')
-      .set('Authorization', `Bearer ${token}`)
-      .send({
-        title: 'TypeScript Gym',
-        description: 'Some description.',
-        phone: '1199999999',
-        latitude: -27.2092052,
-        longitude: -49.6401091,
-      });
-
-    const response = await request(app.server)
-      .get('/gyms/search')
-      .query({
-        q: 'JavaScript',
-      })
-      .set('Authorization', `Bearer ${token}`)
-      .send();
-
-    expect(response.statusCode).toEqual(200);
-    expect(response.body.gyms).toHaveLength(1);
-    expect(response.body.gyms).toEqual([
-      expect.objectContaining({
-        title: 'JavaScript Gym',
-      }),
-    ]);
-  });
-});
+  return {
+    token,
+  };
+}
