@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { PassportModule } from '@nestjs/passport';
-import { Env } from 'src/env';
+import { Env } from '@/env';
 import { JwtStrategy } from './jwt.strategy';
 
 @Module({
