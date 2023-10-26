@@ -6,8 +6,8 @@ POST {{baseUrl}}/accounts
 Content-Type: application/json
 
 {
-	"name": "Leticia Arantes",
-	"email": "email21@email.com",
+	"name": "Eunice Souto",
+	"email": "email2221@email.com",
 	"password": "123456"
 }
 ###
@@ -29,8 +29,8 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-  "title": "Nova pergunta 12",
-  "content": "Teste 3"
+  "title": "Nova pergunta cccc",
+  "content": "Teste aa"
 }
 
 ###
