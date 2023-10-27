@@ -1,16 +1,16 @@
-import { UniqueEntityId } from '@/core/entities/unique-entity-id'
-import { Optional } from '@/core/types/optional'
-import { AnswerAttachmentList } from './answer-attachment-list'
 import { AggregateRoot } from '@/core/entities/aggregate-root'
-import { AnswerCreatedEvent } from '../events/answer-created-event'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
+import { Optional } from '@/core/types/optional'
+import { AnswerAttachmentList } from '@/domain/forum/enterprise/entities/answer-attachment-list'
+import { AnswerCreatedEvent } from '@/domain/forum/enterprise/events/answer-created-event'
 
 export interface AnswerProps {
-  authorId: UniqueEntityId
-  questionId: UniqueEntityId
+  authorId: UniqueEntityID
+  questionId: UniqueEntityID
   content: string
   attachments: AnswerAttachmentList
   createdAt: Date
-  updatedAt?: Date
+  updatedAt?: Date | null
 }
 
 export class Answer extends AggregateRoot<AnswerProps> {
@@ -58,13 +58,13 @@ export class Answer extends AggregateRoot<AnswerProps> {
 
   static create(
     props: Optional<AnswerProps, 'createdAt' | 'attachments'>,
-    id?: UniqueEntityId,
+    id?: UniqueEntityID,
   ) {
     const answer = new Answer(
       {
         ...props,
-        createdAt: props.createdAt ?? new Date(),
         attachments: props.attachments ?? new AnswerAttachmentList(),
+        createdAt: props.createdAt ?? new Date(),
       },
       id,
     )

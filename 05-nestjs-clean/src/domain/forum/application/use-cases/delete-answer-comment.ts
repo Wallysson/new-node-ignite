@@ -1,7 +1,8 @@
-import { right, Either, left } from '@/core/either'
-import { NotAllowedError } from '../../../../core/errors/errors/not-allowed-error'
-import { ResourceNotFoundError } from '../../../../core/errors/errors/resource-not-found-error'
+import { Either, left, right } from '@/core/either'
 import { AnswerCommentsRepository } from '@/domain/forum/application/repositories/answer-comments-repository'
+import { NotAllowedError } from '@/core/errors/errors/not-allowed-error'
+import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error'
+import { Injectable } from '@nestjs/common'
 
 interface DeleteAnswerCommentUseCaseRequest {
   authorId: string
@@ -13,6 +14,7 @@ type DeleteAnswerCommentUseCaseResponse = Either<
   null
 >
 
+@Injectable()
 export class DeleteAnswerCommentUseCase {
   constructor(private answerCommentsRepository: AnswerCommentsRepository) {}
 
